@@ -1,3 +1,6 @@
+/*
+ * Copyright (c) 2016.  任宇翔创建
+ */
 package com.soaring.io.http;
 
 import android.content.Context;
@@ -7,7 +10,7 @@ import com.soaring.io.http.exception.SoaringException;
 import com.soaring.io.http.interceptor.HeaderInterceptor;
 import com.soaring.io.http.interceptor.LogInterceptor;
 import com.soaring.io.http.net.SoaringParam;
-import com.soaring.io.http.net.SoaringStatu;
+import com.soaring.io.http.net.SoaringStatus;
 import com.soaringcloud.kit.box.LogKit;
 import com.squareup.okhttp.Call;
 import com.squareup.okhttp.MediaType;
@@ -24,8 +27,7 @@ import javax.net.ssl.SSLSocketFactory;
  * Created by renyuxiang on 2015/12/3.
  */
 public class HttpManager {
-    public static final MediaType jsonReq
-            = MediaType.parse("application/json; charset=utf-8");
+    public static final MediaType jsonReq = MediaType.parse("application/json; charset=utf-8");
     public static final String HTTPMETHOD_GET = "GET";
     public static final String HTTPMETHOD_PUT = "PUT";
     public static final String HTTPMETHOD_DELETE = "DELETE";
@@ -40,7 +42,8 @@ public class HttpManager {
         this.initHttpClient();
     }
 
-    public String openUrl(Context context, String url, String method, SoaringParam params, IUserAgent userAgent, String file)
+    public String openUrl(Context context, String url, String method, SoaringParam params, IUserAgent userAgent,
+                          String file)
             throws SoaringException {
         try {
             Call call = null;
@@ -76,7 +79,7 @@ public class HttpManager {
                 response = call.execute();
             }
             String result = response.body().string();
-            LogKit.e(this,"Http code:"+response.code());
+            LogKit.e(this, "Http code:" + response.code());
             if (!isExecuteSuccess(response.code())) {
                 LogKit.e("", "ERROR:" + result);
                 throw new SoaringException(result);
@@ -93,29 +96,29 @@ public class HttpManager {
 
     public boolean isExecuteSuccess(int statusCode) {
         switch (statusCode) {
-            case SoaringStatu.ACCEPTED:
+            case SoaringStatus.ACCEPTED:
                 return true;
-            case SoaringStatu.CREATED:
+            case SoaringStatus.CREATED:
                 return true;
-            case SoaringStatu.FORBIDDEN:
+            case SoaringStatus.FORBIDDEN:
                 return false;
-            case SoaringStatu.GONE:
+            case SoaringStatus.GONE:
                 return false;
-            case SoaringStatu.INTERNAL_SERVER_ERROR:
+            case SoaringStatus.INTERNAL_SERVER_ERROR:
                 return false;
-            case SoaringStatu.INVALID_REQUEST:
+            case SoaringStatus.INVALID_REQUEST:
                 return false;
-            case SoaringStatu.NO_CONTENT:
+            case SoaringStatus.NO_CONTENT:
                 return true;
-            case SoaringStatu.NOT_ACCEPTABLE:
+            case SoaringStatus.NOT_ACCEPTABLE:
                 return false;
-            case SoaringStatu.NOT_FOUND:
+            case SoaringStatus.NOT_FOUND:
                 return false;
-            case SoaringStatu.OK:
+            case SoaringStatus.OK:
                 return true;
-            case SoaringStatu.UNAUTHORIZED:
+            case SoaringStatus.UNAUTHORIZED:
                 return false;
-            case SoaringStatu.UNPROCESABLE_ENTITY:
+            case SoaringStatus.UNPROCESABLE_ENTITY:
                 return false;
             default:
                 break;

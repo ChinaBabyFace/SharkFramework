@@ -1,6 +1,10 @@
+/*
+ * Copyright (c) 2016.  任宇翔创建
+ */
+
 package com.soaring.io.http.net;
 
-public class SoaringStatu {
+public class SoaringStatus {
 	public static final int OK=200;
 	public static final int CREATED=201;
 	public static final int ACCEPTED=202;
