@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="wheel_pciker_title_font_style">
+        <item name="android:textColor">@color/wheel_picker_white</item>
+        <item name="android:textSize">@dimen/wheel_picker_font_size_13</item>
+    </style>
+
+    <style name="wheel_pciker_button_style">
+        <item name="android:textColor">@color/wheel_picker_black</item>
+        <item name="android:textSize">@dimen/wheel_picker_font_size_15</item>
+    </style>
+    
+    <style name="wheel_pciker_button_style2">
+        <item name="android:textColor">@color/wheel_picker_white2</item>
+        <item name="android:textSize">@dimen/wheel_picker_font_size_15</item>
+    </style>
+
+    <style name="wheel_pciker_vertical_title_style">
+        <item name="android:textColor">@color/wheel_picker_black</item>
+        <item name="android:textSize">@dimen/wheel_picker_font_size_13</item>
+    </style>
+        <style name="wheel_pciker_colon_style">
+        <item name="android:textColor">@color/wheel_picker_black</item>
+        <item name="android:textSize">@dimen/wheel_picker_font_size_15</item>
+    </style>
+
+</resources>

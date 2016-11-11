@@ -1,0 +1,73 @@
+一、Mainfest需加入以下代码
+        <activity
+            android:name="com.umeng.fb.ConversationActivity"
+            android:label="@string/umeng_fb_title"
+            android:launchMode="singleTop" />
+        <!-- umeng push -->
+        <receiver
+            android:name="com.umeng.message.NotificationProxyBroadcastReceiver"
+            android:exported="false" >
+        </receiver>
+        <receiver android:name="com.umeng.message.RegistrationReceiver" >
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_REMOVED" />
+
+                <data android:scheme="package" />
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.umeng.message.UmengBroadcastReceiver" >
+            <intent-filter>
+                <action android:name="org.agoo.android.intent.action.RECEIVE" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.umeng.fb.example.intent.action.COMMAND" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="org.agoo.android.intent.action.RE_ELECTION_V2" />
+            </intent-filter>
+        </receiver>
+
+        <service
+            android:name="com.umeng.message.UmengService"
+            android:exported="true"
+            android:process=":umengService_v1" >
+            <intent-filter>
+                <action android:name="com.umeng.fb.example.intent.action.START" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.umeng.fb.example.intent.action.COCKROACH" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="org.agoo.android.intent.action.PING" />
+            </intent-filter>
+        </service>
+        <service
+            android:name="org.android.agoo.service.ElectionService"
+            android:exported="true"
+            android:process=":umengService_v1" >
+            <intent-filter>
+                <action android:name="org.agoo.android.intent.action.ELECTION_V2" />
+            </intent-filter>
+        </service>
+        <service android:name="com.umeng.message.UmengIntentService" />
+        <!-- <service android:name="com.umeng.fb.example.MyPushIntentService" /> -->
+        <!-- V1.3.0添加的service，负责下载通知的资源 -->
+        <service android:name="com.umeng.message.UmengDownloadResourceService" />
+ 二、在需要自动更新的地方加入以下代码
+ 	    FeedbackAgent agent = new FeedbackAgent(this);
+		agent.sync();
+		//启动反馈界面
+		agent.startFeedbackActivity();
+三、完全自定义UI
+完全通过数据接口来实现，主要调用下面的数据接口
+实现会话：
+com.umeng.fb.model.Conversation
+添加用户回复：
+con.addUserReply("user reply content here")
+同步消息：
+Conversation.sync(), 通过Conversation.sync()方法将本地内容和服务器同步。
+ 这是一个异步方法。 传入参数com.umeng.fb.SyncListener. 实现回调接口， 从而当网络操作完成时，
+  可以更新UI中的元素,SyncListener包含onReceiveDevReply和onSendUserReply

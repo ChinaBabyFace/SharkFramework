@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="wheel_picker_white2">#ffffff</color>
+    <color name="wheel_picker_black2">#000000</color>
+    <color name="wheel_picker_title_bar_color2">#E54C66</color>
+
+</resources>

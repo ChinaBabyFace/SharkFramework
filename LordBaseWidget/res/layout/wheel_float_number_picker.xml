@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white">
+
+    <RelativeLayout
+        android:id="@+id/wheel_number_title_layout"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@color/wheel_picker_title_bar_color2"
+        >
+
+        <TextView
+            android:id="@+id/picker_title"
+            style="@style/wheel_pciker_button_style2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"/>
+
+        <TextView
+            android:id="@+id/btn_ok"
+            style="@style/wheel_pciker_button_style2"
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:gravity="center"
+            android:text="@string/wheel_picker_ok"/>
+
+        <TextView
+            android:id="@+id/btn_cancel"
+            style="@style/wheel_pciker_button_style2"
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="@string/wheel_picker_cancel"/>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/wheel_number_title_layout"
+        android:layout_centerInParent="true"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:id="@+id/first_data_picker_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+
+            <com.soaring.widget.wheelpicker.core.WheelVerticalView
+                android:id="@+id/first_data_picker"
+                android:layout_width="60dip"
+                android:layout_height="wrap_content"
+                app:selectionDivider="@drawable/wheel_picker_horizontal_divider"
+                app:selectionDividerActiveAlpha="255"
+                app:selectionDividerDimmedAlpha="255"
+                app:selectionDividerHeight="1px"
+                app:visibleItems="5"/>
+
+            <TextView
+                android:id="@+id/picker_min_label_title"
+                style="@style/wheel_pciker_colon_style"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:gravity="center"
+                android:text="."/>
+
+            <com.soaring.widget.wheelpicker.core.WheelVerticalView
+                android:id="@+id/second_data_picker"
+                android:layout_width="60dip"
+                android:layout_height="wrap_content"
+                app:selectionDivider="@drawable/wheel_picker_horizontal_divider"
+                app:selectionDividerActiveAlpha="255"
+                app:selectionDividerDimmedAlpha="255"
+                app:selectionDividerHeight="1px"
+                app:visibleItems="5"/>
+
+            <TextView
+                android:id="@+id/picker_max_label_title"
+                style="@style/wheel_pciker_colon_style"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="KG"/>
+        </LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout>

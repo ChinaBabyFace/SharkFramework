@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:background="#FFFFFF">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:paddingBottom="50dip"
+        android:paddingTop="50dip">
+
+        <Button
+            android:id="@+id/wechat"
+            android:layout_width="78dip"
+            android:layout_height="78dip"
+            android:background="@drawable/umeng_socialize_wechat" />
+
+        <Button
+            android:id="@+id/wechat_circle"
+            android:layout_width="78dip"
+            android:layout_height="78dip"
+            android:background="@drawable/umeng_socialize_wxcircle" />
+
+        <Button
+            android:id="@+id/qq_zone"
+            android:layout_width="78dip"
+            android:layout_height="78dip"
+            android:background="@drawable/umeng_socialize_qzone_on" />
+
+        <Button
+            android:id="@+id/sina"
+            android:layout_width="78dip"
+            android:layout_height="78dip"
+            android:background="@drawable/umeng_socialize_sina_on" />
+    </LinearLayout>
+
+</RelativeLayout>

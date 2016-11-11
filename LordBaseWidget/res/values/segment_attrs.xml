@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="SegmentIndicatorBar">
+        <attr name="segmentHeight" format="dimension" />
+        <attr name="segmentLabelTextSize" format="dimension" />
+        <attr name="graduationTextSize" format="dimension" />
+        <attr name="graduationColor" format="color" />
+        <attr name="valueTextSize" format="dimension" />
+        <attr name="valueTextColor" format="color" />
+        <attr name="value" format="float" />
+        <attr name="indicatorTriangleSideLength" format="dimension" />
+        <attr name="indicatorColor" format="color" />
+        <attr name="isShowGraduation" format="boolean" />
+        <attr name="isShowTerminalGaduation" format="boolean" />
+        <attr name="isShowIndicator" format="boolean" />
+        <attr name="isIndicatorAimation" format="boolean" />
+        <attr name="dividerColor" format="color" />
+        <attr name="dividerSpaceWidth" format="dimension" />
+    </declare-styleable>
+
+</resources>

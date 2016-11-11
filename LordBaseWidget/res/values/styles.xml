@@ -1,0 +1,20 @@
+<resources>
+
+    <!-- Defines the custom XML attributes supported for a HorizontalListView -->
+    <declare-styleable name="HorizontalListView">
+        <attr name="dividerWidth" format="dimension" />
+        <attr name="android:divider" />
+        <attr name="android:requiresFadingEdge" />
+        <attr name="android:fadingEdgeLength" />
+    </declare-styleable>
+
+    <style name="LoadingViewTheme" parent="android:Theme.Dialog">
+        <item name="android:windowBackground">@drawable/loading_view_background_shape</item>
+    </style>
+
+    <style name="WheelPickerPopupAnimation" parent="android:Animation">
+        <item name="android:windowEnterAnimation">@anim/wheel_picker_pop_up</item>
+        <item name="android:windowExitAnimation">@anim/wheel_pciker_pop_down</item>
+    </style>
+
+</resources>

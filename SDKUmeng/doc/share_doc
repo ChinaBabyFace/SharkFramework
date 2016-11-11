@@ -1,0 +1,61 @@
+		ShareHelper按以下顺序调用
+		//1定义
+		private ShareHelper shareHelper;
+	    private ViewGroup root;
+	    
+	    //2获得父容器
+	    //R.id.main是调用当前Activity布局中一个指定的父容器ID
+	    root =(ViewGroup) findViewById(R.id.main);
+	    
+	    //3设置要分享的内容，并初始化ShareHelper
+	    shareHelper = new ShareHelper(HomeActivity.this);
+		SoaringShareContent content = new SoaringShareContent();
+		content.setContent("Test Content");
+		content.setContentUrl("");
+		content.setTitle("Boma Test");
+		content.setImage(BitmapFactory.decodeResource(getResources(), R.drawable.ic_launcher));
+		shareHelper.setShareContent(content);
+		
+		//4在需要显示分享的地方调用
+		shareHelper.showShareWindow(root);
+		
+		//5配置注册文件
+		 <meta-data
+            android:name="UMENG_APPKEY"
+            android:value="548151befd98c5d0ee001835" />
+		<!-- *************************    分享相关的注册 START **************************** -->
+        <!-- 分享内容编辑页 -->
+        <activity
+            android:name="com.umeng.socialize.view.ShareActivity"
+            android:configChanges="orientation|keyboard"
+            android:launchMode="singleTask"
+            android:noHistory="true"
+            android:theme="@style/Theme.UMDialog"
+            android:windowSoftInputMode="stateVisible|adjustResize" >
+        </activity>
+        <!-- 腾讯SSO授权的Activity注册 -->
+        <activity
+            android:name="com.tencent.tauth.AuthActivity"
+            android:launchMode="singleTask"
+            android:noHistory="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data android:scheme="tencent100424468" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.tencent.connect.common.AssistActivity"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+        <!-- 微信回调activity -->
+        <activity
+            android:name="com.soaringcloud.boma.wxapi.WXEntryActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:exported="true"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+        >

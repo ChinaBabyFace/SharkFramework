@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <com.soaring.widget.photopicker.OptimizeGridView
+        android:id="@+id/grid"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:choiceMode="multipleChoice"
+        android:columnWidth="@dimen/itemSize"
+        android:drawSelectorOnTop="true"
+        android:gravity="center"
+        android:horizontalSpacing="4dp"
+        android:listSelector="@drawable/photo_picker_item_selector"
+        android:numColumns="auto_fit"
+        android:scrollbarStyle="outsideOverlay"
+        android:scrollbars="vertical"
+        android:stretchMode="columnWidth"
+        android:verticalSpacing="4dp" />
+
+</RelativeLayout>

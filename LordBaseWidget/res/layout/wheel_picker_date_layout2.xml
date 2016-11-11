@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:background="@color/wheel_picker_title_bar_color2" >
+
+        <TextView
+            android:id="@+id/picker_title"
+            style="@style/wheel_pciker_title_font_style"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"/>
+
+        <TextView
+            android:id="@+id/btn_cancel"
+            style="@style/wheel_pciker_button_style2"
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="@string/wheel_picker_cancel" />
+
+        <TextView
+            android:id="@+id/btn_ok"
+            style="@style/wheel_pciker_button_style2"
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:gravity="center"
+            android:text="@string/wheel_picker_ok" />
+    </RelativeLayout>
+
+      <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:paddingTop="45dp" >
+
+        <com.soaring.widget.wheelpicker.core.WheelVerticalView
+            android:id="@+id/date_picker_year"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content" />
+
+        <com.soaring.widget.wheelpicker.core.WheelVerticalView
+            android:id="@+id/date_picker_month"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content" />
+
+        <com.soaring.widget.wheelpicker.core.WheelVerticalView
+            android:id="@+id/date_picker_day"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+
+
+</RelativeLayout>
