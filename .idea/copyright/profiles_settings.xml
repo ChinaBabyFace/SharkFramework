@@ -1,3 +1,7 @@
 <component name="CopyrightManager">
-  <settings default="" />
+  <settings default="SharkCopyRight">
+    <module2copyright>
+      <element module="All" copyright="SharkCopyRight" />
+    </module2copyright>
+  </settings>
 </component>

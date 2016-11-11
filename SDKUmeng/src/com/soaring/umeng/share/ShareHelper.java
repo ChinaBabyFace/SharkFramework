@@ -1,9 +1,7 @@
-/**
- * ShareHelper.java 2015-1-10
- * <p>
- * 澶╂触浜戠繑鑱斿姩绉戞妧鏈夐檺鍏徃(c) 1995 - 2015 銆�
- * http://www.soaring-cloud.com.cn
+/*
+ * Copyright (c) 2016.  任宇翔创建
  */
+
 package com.soaring.umeng.share;
 
 import android.app.Activity;

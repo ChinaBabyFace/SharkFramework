@@ -1,6 +1,5 @@
-/**
- * UmengLoginController.java 2015-4-16
- * 龙德恒方科技发展有限公司(c) 2015 - 2015 。
+/*
+ * Copyright (c) 2016.  任宇翔创建
  */
 package com.soaring.umeng.login;
 

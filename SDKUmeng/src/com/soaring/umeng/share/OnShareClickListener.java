@@ -1,9 +1,7 @@
-/**
- * OnShareClickListener.java 2015-1-10
- * <p>
- * 天津云翔联动科技有限公司(c) 1995 - 2015 。
- * http://www.soaring-cloud.com.cn
+/*
+ * Copyright (c) 2016.  任宇翔创建
  */
+
 package com.soaring.umeng.share;
 
 import com.umeng.socialize.bean.SHARE_MEDIA;
