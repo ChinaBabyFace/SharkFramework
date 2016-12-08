@@ -2,7 +2,7 @@ apply plugin: 'android-library'
 
 dependencies {
     compile fileTree(include: '*.jar', dir: 'libs')
-    compile project(':LordBaseKit')
+    compile project(':UtilsBase')
     compile 'com.google.code.gson:gson:2.8.0'
 }
 

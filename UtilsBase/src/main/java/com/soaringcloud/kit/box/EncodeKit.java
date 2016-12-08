@@ -1,10 +1,3 @@
-/**
- * EncodeTools.java 2015-1-5
- * 
- * 天津云翔联动科技有限公司(c) 1995 - 2015 。
- * http://www.soaring-cloud.com.cn
- *
- */
 package com.soaringcloud.kit.box;
 
 import android.os.Bundle;

@@ -24,6 +24,6 @@ android {
 
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
-    compile project(':LordBaseKit')
-    compile project(':SDKRetroit')
+    compile project(':UtilsBase')
+    compile project(':HttpRetroit')
 }

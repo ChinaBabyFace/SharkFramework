@@ -2,7 +2,7 @@ apply plugin: 'android-library'
 
 dependencies {
     compile fileTree(include: '*.jar', dir: 'libs')
-    compile project(':LordBaseIO')
+    compile project(':HttpBase')
 }
 
 android {
