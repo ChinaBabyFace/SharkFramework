@@ -37,24 +37,7 @@ public abstract class BaseAPI {
     /**
      * 访问接口的服务器根地址
      */
-    //  开发接口
-    //	protected static final String API_SERVER = "http://192.168.18.202:8080/PregnantAPI/v1.0";
-    //	protected static final String API_SERVER = "http://121.42.155.39:8888/PregnantAPI/v1.0";
-    //	protected static final String API_SERVER = "http://121.42.155.39:8889/PregnantAPI/v1.2";
-    //	protected static final String API_SERVER = "http://192.168.10.15:8890/PregnantAPI/v2.0";
-//      protected static final String API_SERVER = "http://121.42.155.39:8890/PregnantAPI/v2.0";
-    //	protected static final String API_SERVER = "http://192.168.10.57:8083/PregnantAPI/v2.0";
-    //==========================================================================================
-    //	V1.0版本接口
-    //	protected static final String API_SERVER = "http://121.42.155.39:8080/PregnantAPI/v1.0";
-    //	V1.2版本接口
-    //	protected static final String API_SERVER = "http://121.42.155.39:8081/PregnantAPI/v1.2";
-    //	V1.3版正式库
-    //	protected static final String API_SERVER = "http://121.42.155.39:8082/PregnantAPI/v1.3";
-    //  V2.0版正式接口
-    //	protected static final String API_SERVER = "http://121.42.155.39:8083/PregnantAPI/v2.0";
-    //  V2.1版正式接口
-    protected static final String API_SERVER = "http://121.42.155.39:8084/PregnantAPI/v2.1";
+    protected static final String API_SERVER = "Your Server API";
 
     /**
      * POST 请求方式

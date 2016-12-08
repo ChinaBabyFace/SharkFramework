@@ -1,1 +1,1 @@
-include ':app', ':LordBaseKit', ':LordBaseIO', ':RetroitIO', ':LordBaseWidget', ':PregnantAPI', ':SDKLeCloud', ':SDKLordVideo', ':SDKMobSms', ':SDKQiNiuPicUpload', ':SDKUmeng', ':UIPinnedHeaderExpandableListView', ':UISuperCalendarLibrary', ':UISuperChartLibrary', ':UISwitchButton'
+include ':app', ':LordBaseKit', ':LordBaseIO', ':RetroitIO', ':LordBaseWidget', ':ProjectAPI', ':SDKLeCloud', ':SDKLordVideo', ':SDKMobSms', ':SDKQiNiuPicUpload', ':SDKUmeng', ':UIPinnedHeaderExpandableListView', ':UISuperCalendarLibrary', ':UISuperChartLibrary', ':UISwitchButton'

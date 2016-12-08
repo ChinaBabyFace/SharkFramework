@@ -2,8 +2,10 @@ package com.shark.framework;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
+import android.support.test.rule.ActivityTestRule;
 import android.support.test.runner.AndroidJUnit4;
 
+import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
@@ -21,6 +23,12 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
 
-        assertEquals("com.shark.framework", appContext.getPackageName());
+        assertEquals("com.shark", appContext.getPackageName());
+//        onView(withId(R.id.editText)).perform(typeText("Shark"), closeSoftKeyboard());
     }
+
+    @Rule
+    public ActivityTestRule<MainActivity> mActivityRule = new ActivityTestRule<>(
+            MainActivity.class);
+
 }
