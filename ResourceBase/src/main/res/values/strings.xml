@@ -1,0 +1,9 @@
+<!--
+  ~ Copyright (c) 2016.  任宇翔创建
+  -->
+
+<resources>
+    <string name="app_name">ResourceBase</string>
+    <string name="ok">ok</string>
+    <string name="cancel">cancel</string>
+</resources>

@@ -1,9 +1,3 @@
-/**
- * DateTools.java 2014年6月14日
- * <p/>
- * 天津云翔联动科技有限公司(c) 1995 - 2014 。
- * http://www.soaring-cloud.com.cn
- */
 package com.soaringcloud.kit.box;
 
 import java.sql.Timestamp;

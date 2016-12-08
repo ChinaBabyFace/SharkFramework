@@ -11,6 +11,7 @@
             <option value="$PROJECT_DIR$/HttpBase" />
             <option value="$PROJECT_DIR$/HttpRetroit" />
             <option value="$PROJECT_DIR$/ProjectAPI" />
+            <option value="$PROJECT_DIR$/ResourceBase" />
             <option value="$PROJECT_DIR$/SDKLeCloud" />
             <option value="$PROJECT_DIR$/SDKLordVideo" />
             <option value="$PROJECT_DIR$/SDKMobSms" />
@@ -20,6 +21,7 @@
             <option value="$PROJECT_DIR$/UIPinnedHeaderExpandableListView" />
             <option value="$PROJECT_DIR$/UISuperCalendarLibrary" />
             <option value="$PROJECT_DIR$/UISuperChartLibrary" />
+            <option value="$PROJECT_DIR$/UISuperWheelPicker" />
             <option value="$PROJECT_DIR$/UISwitchButton" />
             <option value="$PROJECT_DIR$/UtilsBase" />
             <option value="$PROJECT_DIR$/app" />

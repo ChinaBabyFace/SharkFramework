@@ -5,6 +5,7 @@
       <module fileurl="file://$PROJECT_DIR$/HttpBase/HttpBase.iml" filepath="$PROJECT_DIR$/HttpBase/HttpBase.iml" />
       <module fileurl="file://$PROJECT_DIR$/HttpRetroit/HttpRetroit.iml" filepath="$PROJECT_DIR$/HttpRetroit/HttpRetroit.iml" />
       <module fileurl="file://$PROJECT_DIR$/ProjectAPI/ProjectAPI.iml" filepath="$PROJECT_DIR$/ProjectAPI/ProjectAPI.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ResourceBase/ResourceBase.iml" filepath="$PROJECT_DIR$/ResourceBase/ResourceBase.iml" />
       <module fileurl="file://$PROJECT_DIR$/SDKLeCloud/SDKLeCloud.iml" filepath="$PROJECT_DIR$/SDKLeCloud/SDKLeCloud.iml" />
       <module fileurl="file://$PROJECT_DIR$/SDKLordVideo/SDKLordVideo.iml" filepath="$PROJECT_DIR$/SDKLordVideo/SDKLordVideo.iml" />
       <module fileurl="file://$PROJECT_DIR$/SDKMobSms/SDKMobSms.iml" filepath="$PROJECT_DIR$/SDKMobSms/SDKMobSms.iml" />
@@ -15,6 +16,7 @@
       <module fileurl="file://$PROJECT_DIR$/UIPinnedHeaderExpandableListView/UIPinnedHeaderExpandableListView.iml" filepath="$PROJECT_DIR$/UIPinnedHeaderExpandableListView/UIPinnedHeaderExpandableListView.iml" />
       <module fileurl="file://$PROJECT_DIR$/UISuperCalendarLibrary/UISuperCalendarLibrary.iml" filepath="$PROJECT_DIR$/UISuperCalendarLibrary/UISuperCalendarLibrary.iml" />
       <module fileurl="file://$PROJECT_DIR$/UISuperChartLibrary/UISuperChartLibrary.iml" filepath="$PROJECT_DIR$/UISuperChartLibrary/UISuperChartLibrary.iml" />
+      <module fileurl="file://$PROJECT_DIR$/UISuperWheelPicker/UISuperWheelPicker.iml" filepath="$PROJECT_DIR$/UISuperWheelPicker/UISuperWheelPicker.iml" />
       <module fileurl="file://$PROJECT_DIR$/UISwitchButton/UISwitchButton.iml" filepath="$PROJECT_DIR$/UISwitchButton/UISwitchButton.iml" />
       <module fileurl="file://$PROJECT_DIR$/UtilsBase/UtilsBase.iml" filepath="$PROJECT_DIR$/UtilsBase/UtilsBase.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
