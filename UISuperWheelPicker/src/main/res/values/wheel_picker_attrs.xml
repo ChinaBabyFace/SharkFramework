@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="SharkWheelView">
+        <attr name="visibleItems_shark" format="integer"/>
+        <attr name="isAllVisible_shark" format="boolean"/>
+        <attr name="itemOffsetPercent_shark" format="integer"/>
+        <attr name="itemsPadding_shark" format="dimension"/>
+        <attr name="selectionDividerDimmedAlpha_shark" format="integer"/>
+        <attr name="selectionDividerActiveAlpha_shark" format="integer"/>
+        <attr name="selectionDivider_shark" format="reference"/>
+        <attr name="itemsDimmedAlpha_shark" format="integer"/>
+        <attr name="isCyclic_shark" format="boolean"/>
+    </declare-styleable>
+    <declare-styleable name="SharkWheelVerticalView">
+        <attr name="selectionDividerHeight_shark" format="dimension"/>
+    </declare-styleable>
+    <declare-styleable name="SharkWheelHorizontalView">
+        <attr name="selectionDividerWidth_shark" format="dimension"/>
+    </declare-styleable>
+    <attr name="abstractWheelViewStyle_shark" format="reference" />
+</resources>

@@ -1,0 +1,42 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/first_data_picker_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal">
+
+
+    <com.shark.wheelpicker.core.WheelVerticalView
+        android:id="@+id/first_data_picker"
+        android:layout_width="60dip"
+        android:layout_height="wrap_content"
+        app:isCyclic_shark="true"
+        app:selectionDividerActiveAlpha_shark="255"
+        app:selectionDividerDimmedAlpha_shark="255"
+        app:selectionDividerHeight_shark="1px"
+        app:selectionDivider_shark="@drawable/wheel_picker_horizontal_divider"
+        app:visibleItems_shark="5"/>
+
+
+    <com.shark.wheelpicker.core.WheelVerticalView
+        android:id="@+id/second_data_picker"
+        android:layout_width="60dip"
+        android:layout_height="wrap_content"
+        app:isCyclic_shark="true"
+        app:selectionDividerActiveAlpha_shark="255"
+        app:selectionDividerDimmedAlpha_shark="255"
+        app:selectionDividerHeight_shark="1px"
+        app:selectionDivider_shark="@drawable/wheel_picker_horizontal_divider"
+        app:visibleItems_shark="5"/>
+
+    <com.shark.wheelpicker.core.WheelVerticalView
+        android:id="@+id/third_data_picker"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:selectionDividerActiveAlpha_shark="255"
+        app:selectionDividerDimmedAlpha_shark="255"
+        app:selectionDividerHeight_shark="1px"
+        app:selectionDivider_shark="@drawable/wheel_picker_horizontal_divider"
+        app:visibleItems_shark="5"/>
+</LinearLayout>

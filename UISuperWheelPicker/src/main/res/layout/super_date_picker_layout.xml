@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/picker_content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:orientation="horizontal">
+
+        <com.shark.wheelpicker.core.WheelVerticalView
+            android:id="@+id/year_picker"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:selectionDividerActiveAlpha_shark="255"
+            app:selectionDividerDimmedAlpha_shark="255"
+            app:selectionDividerHeight_shark="1px"
+            app:selectionDivider_shark="@drawable/wheel_picker_horizontal_divider"
+            app:visibleItems_shark="5"/>
+
+        <TextView
+            android:id="@+id/separator1"
+            android:layout_width="40dip"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:textSize="30sp"
+            android:text="-"/>
+
+        <com.shark.wheelpicker.core.WheelVerticalView
+            android:id="@+id/month_picker"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:selectionDividerActiveAlpha_shark="255"
+            app:selectionDividerDimmedAlpha_shark="255"
+            app:selectionDividerHeight_shark="1px"
+            app:selectionDivider_shark="@drawable/wheel_picker_horizontal_divider"
+            app:visibleItems_shark="5"/>
+
+        <TextView
+            android:id="@+id/separator2"
+            android:layout_width="40dip"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:textSize="30sp"
+            android:text="-"/>
+
+        <com.shark.wheelpicker.core.WheelVerticalView
+            android:id="@+id/day_picker"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:selectionDividerActiveAlpha_shark="255"
+            app:selectionDividerDimmedAlpha_shark="255"
+            app:selectionDividerHeight_shark="1px"
+            app:selectionDivider_shark="@drawable/wheel_picker_horizontal_divider"
+            app:visibleItems_shark="5"/>
+
+    </LinearLayout>
+
+</LinearLayout>
