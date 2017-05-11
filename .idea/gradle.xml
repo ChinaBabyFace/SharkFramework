@@ -8,6 +8,7 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/BaseKit" />
             <option value="$PROJECT_DIR$/HttpBase" />
             <option value="$PROJECT_DIR$/HttpRetroit" />
             <option value="$PROJECT_DIR$/ProjectAPI" />
@@ -16,6 +17,7 @@
             <option value="$PROJECT_DIR$/SDKLordVideo" />
             <option value="$PROJECT_DIR$/SDKMobSms" />
             <option value="$PROJECT_DIR$/SDKQiNiuPicUpload" />
+            <option value="$PROJECT_DIR$/SDKTecentWeibo" />
             <option value="$PROJECT_DIR$/SDKUmeng" />
             <option value="$PROJECT_DIR$/UIBaseWidget" />
             <option value="$PROJECT_DIR$/UIPinnedHeaderExpandableListView" />

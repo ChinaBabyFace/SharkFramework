@@ -6,18 +6,19 @@ package com.shark.wheelpicker.view.number;
 
 import android.content.Context;
 import android.graphics.Typeface;
+import android.os.Build;
 import android.text.TextUtils;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.ihealthlabs.kit.core.LogUtils;
 import com.shark.wheelpicker.R;
 import com.shark.wheelpicker.core.AbstractWheel;
 import com.shark.wheelpicker.core.WheelVerticalView;
 import com.shark.wheelpicker.core.adapter.NumericWheelAdapter;
 import com.shark.wheelpicker.core.callback.OnWheelScrollListener;
+import com.soaringcloud.kit.box.LogKit;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -35,6 +36,7 @@ public class SuperNumberController implements OnWheelScrollListener {
     private String defaultValueString;
     private Context context;
     private boolean isKeepZero = false;
+    private boolean isWheelRecycle = true;
 
     public SuperNumberController(Context context) {
         this.wheelList = new ArrayList<>();
@@ -45,6 +47,11 @@ public class SuperNumberController implements OnWheelScrollListener {
     public View createView() {
         View root = View.inflate(context, R.layout.super_number_picker_layout, null);
         LinearLayout contentLayout = (LinearLayout) root.findViewById(R.id.picker_content);
+        //此处禁止RTL防止在阿拉伯地区数组滚轮倒序摆放
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
+            contentLayout.setLayoutDirection(View.LAYOUT_DIRECTION_LTR);
+        }
+
         for (Object param : paramList) {
             if (param instanceof NumberParam) {
                 NumberParam numberParam = (NumberParam) param;
@@ -52,25 +59,26 @@ public class SuperNumberController implements OnWheelScrollListener {
                     View wheelLayout = View.inflate(context, R.layout.super_number_picker_wheel_item_layout, null);
                     WheelVerticalView wheel = (WheelVerticalView) wheelLayout.findViewById(R.id.wheel_item);
                     numberParam.getWheelList().add(wheel);
-                    LogUtils.e(this, "Add wheel");
+                    LogKit.e(this, "Add wheel");
                     contentLayout.addView(wheelLayout);
                 }
             }
             if (param instanceof String) {
-                LogUtils.e(this, "Add separator");
+                LogKit.e(this, "Add separator");
                 String separator = (String) param;
                 View textLayout = View.inflate(context, R.layout.super_number_picker_text_item_layout, null);
                 ((TextView) textLayout.findViewById(R.id.separator)).setText(separator);
                 contentLayout.addView(textLayout, new ViewGroup.LayoutParams(-2, -1));
             }
         }
+
         initDefaultValue();
         refreshAllWheel();
         return root;
     }
 
     public void initDefaultValue() {
-        LogUtils.e(this, "initDefaultValue start:" + defaultValueString);
+        LogKit.e(this, "initDefaultValue start:" + defaultValueString);
         if (TextUtils.isEmpty(defaultValueString)) {
             defaultValueString = "0";
         }
@@ -79,7 +87,7 @@ public class SuperNumberController implements OnWheelScrollListener {
         char[] temp = defaultValueString.toCharArray();
         boolean isFindDigit = false;
         for (char c : temp) {
-            LogUtils.e(this, "initDefaultValue:" + c);
+            LogKit.e(this, "initDefaultValue:" + c);
             if (c >= 48 && c <= 57) {
                 if (isFindDigit) {
                     partList.set(partList.size() - 1, partList.get(partList.size() - 1) + c);
@@ -132,7 +140,7 @@ public class SuperNumberController implements OnWheelScrollListener {
                 result = bindWheelData(numberParam, result[0], result[1]);
             }
         }
-        LogUtils.e(this, "Bind data cost:" + (System.currentTimeMillis() - time));
+        LogKit.e(this, "Bind data cost:" + (System.currentTimeMillis() - time));
     }
 
     public void handleWheelCurrentValue() {
@@ -179,7 +187,7 @@ public class SuperNumberController implements OnWheelScrollListener {
         char[] currentArray = (getZeroString(wheelCount - currentValue.toString().length()) + currentValue.toString()
         ).toCharArray();
 
-        LogUtils.e(this, "TriggerMin:" + isTriggerMin + ",TriggerMax:" + isTriggerMax);
+        LogKit.e(this, "TriggerMin:" + isTriggerMin + ",TriggerMax:" + isTriggerMax);
         boolean isLastNumberMin = false;
         boolean isLastNumberMax = false;
         for (int i = 0; i < numberParam.getWheelList().size(); i++) {
@@ -188,11 +196,11 @@ public class SuperNumberController implements OnWheelScrollListener {
             int wheelMin = WHEEL_DATA_RANGE_MIN;
             int wheelMax = WHEEL_DATA_RANGE_MAX;
             int currentNumber = parseChar(currentArray[i]);
-            LogUtils.e(this, i + ">1 WheelMin:" + wheelMin + ",WheelMax:" + wheelMax);
+            LogKit.e(this, i + ">1 WheelMin:" + wheelMin + ",WheelMax:" + wheelMax);
             if (i == 0) {
                 wheelMin = parseChar(minArray[i]);
                 wheelMax = parseChar(maxArray[i]);
-                LogUtils.e(this, i + ">2 WheelMin:" + wheelMin + ",WheelMax:" + wheelMax);
+                LogKit.e(this, i + ">2 WheelMin:" + wheelMin + ",WheelMax:" + wheelMax);
                 /*根据上一组滚轮的状态确定这一组滚轮首轮的状态*/
                 if (isTriggerMin) {
                     wheelMin = parseChar(minTriggerArray[i]);
@@ -201,7 +209,7 @@ public class SuperNumberController implements OnWheelScrollListener {
                 if (isTriggerMax) {
                     wheelMax = parseChar(maxTriggerArray[i]);
                 }
-                LogUtils.e(this, i + ">3 WheelMin:" + wheelMin + ",WheelMax:" + wheelMax);
+                LogKit.e(this, i + ">3 WheelMin:" + wheelMin + ",WheelMax:" + wheelMax);
 
                   /*根据本滚轮最新的边界值，修正默认值*/
                 if (currentNumber < wheelMin) {
@@ -240,7 +248,7 @@ public class SuperNumberController implements OnWheelScrollListener {
                     /*本组若有一位数没有处于极限状态，则立即中断组信号*/
                     isTriggerMax = false;
                 }
-                LogUtils.e(this, i + ">2 WheelMin:" + wheelMin + ",WheelMax:" + wheelMax);
+                LogKit.e(this, i + ">2 WheelMin:" + wheelMin + ",WheelMax:" + wheelMax);
 
                 /*如果上组滚轮已经处于极限值，则本滚轮根据触发值修正自己的上下限*/
                 if (isTriggerMin) {
@@ -250,7 +258,7 @@ public class SuperNumberController implements OnWheelScrollListener {
                 if (isTriggerMax) {
                     wheelMax = parseChar(maxTriggerArray[i]);
                 }
-                LogUtils.e(this, i + ">3 WheelMin:" + wheelMin + ",WheelMax:" + wheelMax);
+                LogKit.e(this, i + ">3 WheelMin:" + wheelMin + ",WheelMax:" + wheelMax);
 
                 /*根据本滚轮最新的边界值，修正默认值*/
                 if (currentNumber < wheelMin) {
@@ -290,6 +298,7 @@ public class SuperNumberController implements OnWheelScrollListener {
             adapter.setTextSize(30);
             adapter.setTextTypeface(Typeface.DEFAULT);
             wheel.setViewAdapter(adapter);
+            wheel.setCyclic(isWheelRecycle);
             wheel.addScrollingListener(this);
         }
         NumericWheelAdapter adapter = (NumericWheelAdapter) (wheel.getViewAdapter());
@@ -339,16 +348,12 @@ public class SuperNumberController implements OnWheelScrollListener {
         return zero;
     }
 
+    public void setWheelRecycle(boolean wheelRecycle) {
+        isWheelRecycle = wheelRecycle;
+    }
+
     public List<Object> getParamList() {
         return paramList;
-    }
-
-    public void setParamList(List<Object> paramList) {
-        this.paramList = paramList;
-    }
-
-    public String getDefaultValueString() {
-        return defaultValueString;
     }
 
     public void setDefaultValueString(String defaultValueString) {

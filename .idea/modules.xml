@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/BaseKit/BaseKit.iml" filepath="$PROJECT_DIR$/BaseKit/BaseKit.iml" />
       <module fileurl="file://$PROJECT_DIR$/HttpBase/HttpBase.iml" filepath="$PROJECT_DIR$/HttpBase/HttpBase.iml" />
       <module fileurl="file://$PROJECT_DIR$/HttpRetroit/HttpRetroit.iml" filepath="$PROJECT_DIR$/HttpRetroit/HttpRetroit.iml" />
       <module fileurl="file://$PROJECT_DIR$/ProjectAPI/ProjectAPI.iml" filepath="$PROJECT_DIR$/ProjectAPI/ProjectAPI.iml" />
@@ -10,6 +11,7 @@
       <module fileurl="file://$PROJECT_DIR$/SDKLordVideo/SDKLordVideo.iml" filepath="$PROJECT_DIR$/SDKLordVideo/SDKLordVideo.iml" />
       <module fileurl="file://$PROJECT_DIR$/SDKMobSms/SDKMobSms.iml" filepath="$PROJECT_DIR$/SDKMobSms/SDKMobSms.iml" />
       <module fileurl="file://$PROJECT_DIR$/SDKQiNiuPicUpload/SDKQiNiuPicUpload.iml" filepath="$PROJECT_DIR$/SDKQiNiuPicUpload/SDKQiNiuPicUpload.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SDKTecentWeibo/SDKTecentWeibo.iml" filepath="$PROJECT_DIR$/SDKTecentWeibo/SDKTecentWeibo.iml" />
       <module fileurl="file://$PROJECT_DIR$/SDKUmeng/SDKUmeng.iml" filepath="$PROJECT_DIR$/SDKUmeng/SDKUmeng.iml" />
       <module fileurl="file://$PROJECT_DIR$/SharkFramework.iml" filepath="$PROJECT_DIR$/SharkFramework.iml" />
       <module fileurl="file://$PROJECT_DIR$/UIBaseWidget/UIBaseWidget.iml" filepath="$PROJECT_DIR$/UIBaseWidget/UIBaseWidget.iml" />

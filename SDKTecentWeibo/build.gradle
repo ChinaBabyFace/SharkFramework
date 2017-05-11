@@ -1,0 +1,27 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion 25
+    buildToolsVersion '25.0.2'
+    defaultConfig {
+        minSdkVersion 14
+        targetSdkVersion 22
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
+        }
+    }
+    productFlavors {
+    }
+
+//    useLibrary 'org.apache.http.legacy'
+}
+
+dependencies {
+    compile fileTree(include: '*.jar', dir: 'libs')
+    //23version下避免使用httpclien出现问题的包
+    compile files('libs/commons-httpclient-3.0.1.jar')
+    compile 'org.jbundle.util.osgi.wrapped:org.jbundle.util.osgi.wrapped.org.apache.http.client:4.1.2'
+}

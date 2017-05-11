@@ -62,7 +62,9 @@ public abstract class AbstractWheel extends View {
     //  Default properties values
     //----------------------------------
 
-    /** Default count of visible items */
+    /**
+     * Default count of visible items
+     */
     private static final int DEF_VISIBLE_ITEMS = 4;
     private static final boolean DEF_IS_CYCLIC = false;
 
@@ -92,7 +94,7 @@ public abstract class AbstractWheel extends View {
 
     // View adapter
     protected WheelViewAdapter mViewAdapter;
-    
+
     protected int mLayoutHeight;
     protected int mLayoutWidth;
 
@@ -119,8 +121,8 @@ public abstract class AbstractWheel extends View {
     /**
      * Create a new AbstractWheel instance
      *
-     * @param context the application environment.
-     * @param attrs a collection of attributes.
+     * @param context  the application environment.
+     * @param attrs    a collection of attributes.
      * @param defStyle The default style to apply to this view.
      */
     public AbstractWheel(Context context, AttributeSet attrs, int defStyle) {
@@ -138,7 +140,7 @@ public abstract class AbstractWheel extends View {
     /**
      * Initiates data and parameters from styles
      *
-     * @param attrs a collection of attributes.
+     * @param attrs    a collection of attributes.
      * @param defStyle The default style to apply to this view.
      */
     protected void initAttributes(AttributeSet attrs, int defStyle) {
@@ -191,11 +193,11 @@ public abstract class AbstractWheel extends View {
                 doScroll(distance);
 
                 int dimension = getBaseDimension();
-                if (mScrollingOffset >  dimension) {
-                    mScrollingOffset =  dimension;
+                if (mScrollingOffset > dimension) {
+                    mScrollingOffset = dimension;
                     mScroller.stopScrolling();
-                } else if (mScrollingOffset < - dimension) {
-                    mScrollingOffset = - dimension;
+                } else if (mScrollingOffset < -dimension) {
+                    mScrollingOffset = -dimension;
                     mScroller.stopScrolling();
                 }
             }
@@ -234,12 +236,12 @@ public abstract class AbstractWheel extends View {
     @Override
     public void onRestoreInstanceState(Parcelable state) {
         //begin boilerplate code so parent classes can restore state
-        if(!(state instanceof SavedState)) {
+        if (!(state instanceof SavedState)) {
             super.onRestoreInstanceState(state);
             return;
         }
 
-        final SavedState ss = (SavedState)state;
+        final SavedState ss = (SavedState) state;
         super.onRestoreInstanceState(ss.getSuperState());
         //end
 
@@ -278,6 +280,7 @@ public abstract class AbstractWheel extends View {
                     public SavedState createFromParcel(Parcel in) {
                         return new SavedState(in);
                     }
+
                     public SavedState[] newArray(int size) {
                         return new SavedState[size];
                     }
@@ -302,10 +305,17 @@ public abstract class AbstractWheel extends View {
     abstract protected WheelScroller createScroller(WheelScroller.ScrollingListener scrollingListener);
 
     /* These methods are not abstract, as we may want to override only some of them */
-    protected void onScrollStarted() {}
-    protected void onScrollTouched() {}
-    protected void onScrollTouchedUp() {}
-    protected void onScrollFinished() {}
+    protected void onScrollStarted() {
+    }
+
+    protected void onScrollTouched() {
+    }
+
+    protected void onScrollTouchedUp() {
+    }
+
+    protected void onScrollFinished() {
+    }
 
     /**
      * Stops scrolling
@@ -316,6 +326,7 @@ public abstract class AbstractWheel extends View {
 
     /**
      * Set the the specified scrolling interpolator
+     *
      * @param interpolator the interpolator
      */
     public void setInterpolator(Interpolator interpolator) {
@@ -324,8 +335,9 @@ public abstract class AbstractWheel extends View {
 
     /**
      * Scroll the spinnerwheel
+     *
      * @param itemsToScroll items to scroll
-     * @param time scrolling duration
+     * @param time          scrolling duration
      */
     public void scroll(int itemsToScroll, int time) {
         int distance = itemsToScroll * getItemDimension() - mScrollingOffset;
@@ -335,6 +347,7 @@ public abstract class AbstractWheel extends View {
 
     /**
      * Scrolls the spinnerwheel
+     *
      * @param delta the scrolling value
      */
     private void doScroll(int delta) {
@@ -467,8 +480,8 @@ public abstract class AbstractWheel extends View {
             }
             mScrollingOffset = 0;
         } else if (mItemsLayout != null) {
-                // cache all items
-                mRecycler.recycleItems(mItemsLayout, mFirstItemIdx, new ItemsRange());
+            // cache all items
+            mRecycler.recycleItems(mItemsLayout, mFirstItemIdx, new ItemsRange());
         }
         invalidate();
     }
@@ -502,15 +515,17 @@ public abstract class AbstractWheel extends View {
 
     /**
      * Sets all items to have no dim and makes them visible
+     *
      * @param isAllVisible
      */
-    public void setAllItemsVisible(boolean isAllVisible){
+    public void setAllItemsVisible(boolean isAllVisible) {
         mIsAllVisible = isAllVisible;
         invalidateItemsLayout(false);
     }
 
     /**
      * Gets view adapter
+     *
      * @return the view adapter
      */
     public WheelViewAdapter getViewAdapter() {
@@ -547,7 +562,7 @@ public abstract class AbstractWheel extends View {
     /**
      * Sets the current item. Does nothing when index is wrong.
      *
-     * @param index the item index
+     * @param index    the item index
      * @param animated the animation flag
      */
     public void setCurrentItem(int index, boolean animated) {
@@ -562,7 +577,7 @@ public abstract class AbstractWheel extends View {
                     index += itemCount;
                 }
                 index %= itemCount;
-            } else{
+            } else {
                 return; // throw?
             }
         }
@@ -597,6 +612,7 @@ public abstract class AbstractWheel extends View {
 
     /**
      * Tests if spinnerwheel is cyclic. That means before the 1st item there is shown the last one
+     *
      * @return true if spinnerwheel is cyclic
      */
     public boolean isCyclic() {
@@ -605,6 +621,7 @@ public abstract class AbstractWheel extends View {
 
     /**
      * Set spinnerwheel cyclic flag
+     *
      * @param isCyclic the flag to set
      */
     public void setCyclic(boolean isCyclic) {
@@ -621,6 +638,7 @@ public abstract class AbstractWheel extends View {
 
     /**
      * Adds spinnerwheel changing listener
+     *
      * @param listener the listener
      */
     public void addChangingListener(OnWheelChangedListener listener) {
@@ -629,6 +647,7 @@ public abstract class AbstractWheel extends View {
 
     /**
      * Removes spinnerwheel changing listener
+     *
      * @param listener the listener
      */
     public void removeChangingListener(OnWheelChangedListener listener) {
@@ -637,6 +656,7 @@ public abstract class AbstractWheel extends View {
 
     /**
      * Notifies changing listeners
+     *
      * @param oldValue the old spinnerwheel value
      * @param newValue the new spinnerwheel value
      */
@@ -648,6 +668,7 @@ public abstract class AbstractWheel extends View {
 
     /**
      * Adds spinnerwheel scrolling listener
+     *
      * @param listener the listener
      */
     public void addScrollingListener(OnWheelScrollListener listener) {
@@ -656,6 +677,7 @@ public abstract class AbstractWheel extends View {
 
     /**
      * Removes spinnerwheel scrolling listener
+     *
      * @param listener the listener
      */
     public void removeScrollingListener(OnWheelScrollListener listener) {
@@ -682,6 +704,7 @@ public abstract class AbstractWheel extends View {
 
     /**
      * Adds spinnerwheel clicking listener
+     *
      * @param listener the listener
      */
     public void addClickingListener(OnWheelClickedListener listener) {
@@ -690,6 +713,7 @@ public abstract class AbstractWheel extends View {
 
     /**
      * Removes spinnerwheel clicking listener
+     *
      * @param listener the listener
      */
     public void removeClickingListener(OnWheelClickedListener listener) {
@@ -698,6 +722,7 @@ public abstract class AbstractWheel extends View {
 
     /**
      * Notifies listeners about clicking
+     *
      * @param item clicked item
      */
     protected void notifyClickListenersAboutClick(int item) {
@@ -763,6 +788,7 @@ public abstract class AbstractWheel extends View {
 
     /**
      * Calculates range for spinnerwheel items
+     *
      * @return the items range
      */
     private ItemsRange getItemsRange() {
@@ -785,14 +811,16 @@ public abstract class AbstractWheel extends View {
         if (!isCyclic()) {
             if (start < 0)
                 start = 0;
-            if (end > mViewAdapter.getItemsCount())
+            if (end > mViewAdapter.getItemsCount()) {
                 end = mViewAdapter.getItemsCount();
+            }
         }
         return new ItemsRange(start, end - start + 1);
     }
 
     /**
      * Checks whether item index is valid
+     *
      * @param index the item index
      * @return true if item index is not out of bounds or the spinnerwheel is cyclic
      */
@@ -807,6 +835,7 @@ public abstract class AbstractWheel extends View {
 
     /**
      * Adds view for item to items layout
+     *
      * @param index the item index
      * @param first the flag indicates if view should be first
      * @return true if corresponding item exists and is added
@@ -826,6 +855,7 @@ public abstract class AbstractWheel extends View {
 
     /**
      * Returns view for specified item
+     *
      * @param index the item index
      * @return item view or empty view if index is out of bounds
      */
@@ -835,7 +865,7 @@ public abstract class AbstractWheel extends View {
         }
         int count = mViewAdapter.getItemsCount();
         if (!isValidItemIndex(index)) {
-            return mViewAdapter.getEmptyItem( mRecycler.getEmptyItem(), mItemsLayout);
+            return mViewAdapter.getEmptyItem(mRecycler.getEmptyItem(), mItemsLayout);
         } else {
             while (index < 0) {
                 index = count + index;
@@ -859,7 +889,7 @@ public abstract class AbstractWheel extends View {
         }
 
         switch (event.getAction()) {
-            case MotionEvent.ACTION_DOWN: 
+            case MotionEvent.ACTION_DOWN:
             case MotionEvent.ACTION_MOVE:
                 if (getParent() != null) {
                     getParent().requestDisallowInterceptTouchEvent(true);

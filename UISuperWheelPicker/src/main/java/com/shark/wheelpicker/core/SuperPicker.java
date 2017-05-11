@@ -11,7 +11,7 @@ public abstract class SuperPicker {
     private Context context;
     private View pickerView;
 
-    public abstract   void show();
+    public abstract void show();
 
     public SuperPicker(Context context) {
         this.context = context;

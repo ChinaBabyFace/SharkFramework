@@ -1,18 +1,15 @@
 package com.shark.wheelpicker.view.date;
 
 import android.content.Context;
-import android.graphics.Typeface;
 import android.view.View;
 
 import com.shark.wheelpicker.R;
-import com.shark.wheelpicker.core.AbstractWheel;
 import com.shark.wheelpicker.core.SuperController;
 import com.shark.wheelpicker.core.WheelVerticalView;
 import com.shark.wheelpicker.core.adapter.NumericWheelAdapter;
 import com.shark.wheelpicker.core.callback.OnWheelScrollListener;
 
 import java.util.Calendar;
-import java.util.HashMap;
 
 /**
  * Created by renyuxiang on 2016/12/5.
@@ -24,71 +21,79 @@ public class SuperDateController extends SuperController implements OnWheelScrol
     public static final String WHEEL_DAY_KEY = "wheel_day_key";
     private Calendar defaultCalendar;
     private Calendar currentCalendar;
-    private int maxYear;
-    private int minYear;
-    private HashMap<String, WheelVerticalView> wheelMap;
+    private Calendar maxCalendar;
+    private Calendar minCalendar;
 
     public SuperDateController(Context context) {
         super(context);
-        wheelMap = new HashMap<>();
+        defaultCalendar = Calendar.getInstance();
+        currentCalendar = Calendar.getInstance();
+        maxCalendar = Calendar.getInstance();
+        minCalendar = Calendar.getInstance();
+        maxCalendar.add(Calendar.YEAR, 50);
+        minCalendar.add(Calendar.YEAR, -50);
     }
 
     @Override
     public View createView() {
         View root = View.inflate(getContext(), R.layout.super_date_picker_layout, null);
-        WheelVerticalView wheelYear = (WheelVerticalView) root.findViewById(R.id.year_picker);
+        WheelVerticalView wheelYear = (WheelVerticalView) root.findViewById(R.id.am_pm_picker);
         WheelVerticalView wheelMonth = (WheelVerticalView) root.findViewById(R.id.month_picker);
         WheelVerticalView wheelDay = (WheelVerticalView) root.findViewById(R.id.day_picker);
-        wheelMap.put(WHEEL_YEAR_KEY, wheelYear);
-        wheelMap.put(WHEEL_MONTH_KEY, wheelMonth);
-        wheelMap.put(WHEEL_DAY_KEY, wheelDay);
-        refreshAllWheel();
+        getWheelMap().put(WHEEL_YEAR_KEY, wheelYear);
+        getWheelMap().put(WHEEL_MONTH_KEY, wheelMonth);
+        getWheelMap().put(WHEEL_DAY_KEY, wheelDay);
+        refreshWheel();
         return root;
     }
 
-    public void refreshCurrentCalendar() {
-        WheelVerticalView wheelYear = wheelMap.get(WHEEL_YEAR_KEY);
+    @Override
+    public void saveCurrentValue() {
+        WheelVerticalView wheelYear = getWheelMap().get(WHEEL_YEAR_KEY);
         NumericWheelAdapter adapterYear = (NumericWheelAdapter) wheelYear.getViewAdapter();
         getCurrentCalendar().set(Calendar.YEAR, wheelYear.getCurrentItem() + adapterYear.getMinValue());
 
 
-        WheelVerticalView wheelMonth = wheelMap.get(WHEEL_MONTH_KEY);
+        WheelVerticalView wheelMonth = getWheelMap().get(WHEEL_MONTH_KEY);
         NumericWheelAdapter adapterMonth = (NumericWheelAdapter) wheelMonth.getViewAdapter();
         getCurrentCalendar().set(Calendar.MONTH, wheelMonth.getCurrentItem() + adapterMonth.getMinValue() - 1);
 
-        WheelVerticalView wheelDay = wheelMap.get(WHEEL_DAY_KEY);
+        WheelVerticalView wheelDay = getWheelMap().get(WHEEL_DAY_KEY);
         NumericWheelAdapter adapterDay = (NumericWheelAdapter) wheelDay.getViewAdapter();
         getCurrentCalendar().set(Calendar.DAY_OF_MONTH, wheelDay.getCurrentItem() + adapterDay.getMinValue());
     }
 
-    public void refreshAllWheel() {
-        WheelVerticalView wheelYear = wheelMap.get(WHEEL_YEAR_KEY);
-        notifyWheel(wheelYear, getMinYear(), getMaxYear(), getCurrentCalendar().get(Calendar.YEAR),"%04d");
+    @Override
+    public void refreshWheel() {
 
-        WheelVerticalView wheelMonth = wheelMap.get(WHEEL_MONTH_KEY);
-        notifyWheel(wheelMonth, 1, 12, getCurrentCalendar().get(Calendar.MONTH) + 1,"%02d");
+        WheelVerticalView wheelYear = getWheelMap().get(WHEEL_YEAR_KEY);
+        notifyNumericWheel(wheelYear, getMinCalendar().get(Calendar.YEAR), getMaxCalendar().get(Calendar.YEAR),
+                getCurrentCalendar().get(Calendar.YEAR), "%04d");
 
-        WheelVerticalView wheelDay = wheelMap.get(WHEEL_DAY_KEY);
-        notifyWheel(wheelDay, 1, getCurrentMonthDayCount(), getCurrentCalendar().get(Calendar.DAY_OF_MONTH),"%02d");
-    }
-
-    public void notifyWheel(WheelVerticalView wheel, int min, int max, int defaultValue,String format) {
-        if (min > max) {
-            int i = max;
-            max = min;
-            min = i;
+        int maxMonth = 12;
+        int minMonth = 1;
+        int maxDay = getCurrentMonthDayCount();
+        int minDay = 1;
+        if (getCurrentCalendar().get(Calendar.YEAR) == getMaxCalendar().get(Calendar.YEAR)) {
+            maxMonth = getMaxCalendar().get(Calendar.MONTH) + 1;
+            if (getCurrentCalendar().get(Calendar.MONTH) == getMaxCalendar().get(Calendar.MONTH)) {
+                maxDay = getMaxCalendar().get(Calendar.DAY_OF_MONTH);
+            }
         }
-        if (wheel.getViewAdapter() == null) {
-            NumericWheelAdapter adapter = new NumericWheelAdapter(getContext(), min, max,format);
-            adapter.setTextSize(30);
-            adapter.setTextTypeface(Typeface.DEFAULT);
-            wheel.setViewAdapter(adapter);
-            wheel.addScrollingListener(this);
+
+        if (getCurrentCalendar().get(Calendar.YEAR) == getMinCalendar().get(Calendar.YEAR)){
+            minMonth = getMinCalendar().get(Calendar.MONTH) + 1;
+            if (getCurrentCalendar().get(Calendar.MONTH) == getMinCalendar().get(Calendar.MONTH)) {
+                minDay = getMinCalendar().get(Calendar.DAY_OF_MONTH);
+            }
         }
-        NumericWheelAdapter adapter = (NumericWheelAdapter) (wheel.getViewAdapter());
-        adapter.setMaxValue(max);
-        adapter.setMinValue(min);
-        wheel.setCurrentItem(defaultValue - min);
+
+        WheelVerticalView wheelMonth = getWheelMap().get(WHEEL_MONTH_KEY);
+        notifyNumericWheel(wheelMonth, minMonth, maxMonth, getCurrentCalendar().get(Calendar.MONTH) + 1, "%02d");
+
+        WheelVerticalView wheelDay = getWheelMap().get(WHEEL_DAY_KEY);
+        notifyNumericWheel(wheelDay, minDay, maxDay, getCurrentCalendar().get(Calendar.DAY_OF_MONTH),
+                "%02d");
     }
 
     public void setDefaultCalendar(Calendar calendar) {
@@ -100,10 +105,6 @@ public class SuperDateController extends SuperController implements OnWheelScrol
         return getCurrentCalendar().getActualMaximum(Calendar.DAY_OF_MONTH);
     }
 
-    public Calendar getDefaultCalendar() {
-        return defaultCalendar;
-    }
-
     public Calendar getCurrentCalendar() {
         return currentCalendar;
     }
@@ -112,30 +113,19 @@ public class SuperDateController extends SuperController implements OnWheelScrol
         this.currentCalendar = currentCalendar;
     }
 
-    public int getMaxYear() {
-        return maxYear;
+    public Calendar getMaxCalendar() {
+        return maxCalendar;
     }
 
-    public int getMinYear() {
-        return minYear;
+    public void setMaxCalendar(Calendar maxCalendar) {
+        this.maxCalendar = maxCalendar;
     }
 
-    public void setMaxYear(int maxYear) {
-        this.maxYear = maxYear;
+    public Calendar getMinCalendar() {
+        return minCalendar;
     }
 
-    public void setMinYear(int minYear) {
-        this.minYear = minYear;
-    }
-
-    @Override
-    public void onScrollingStarted(AbstractWheel wheel) {
-
-    }
-
-    @Override
-    public void onScrollingFinished(AbstractWheel wheel) {
-        refreshCurrentCalendar();
-        refreshAllWheel();
+    public void setMinCalendar(Calendar minCalendar) {
+        this.minCalendar = minCalendar;
     }
 }

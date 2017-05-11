@@ -4,9 +4,9 @@
 
 package com.shark.wheelpicker.view.number;
 
-import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.support.v7.app.AlertDialog;
 
 import com.shark.wheelpicker.R;
 import com.shark.wheelpicker.core.SuperPicker;
@@ -79,11 +79,25 @@ public class SuperNumberPicker extends SuperPicker {
             return this;
         }
 
+        /**
+         * 若首位出现0是否保留
+         * @param isKeepZero
+         * @return
+         */
         public Builder setKeepZero(boolean isKeepZero) {
             controller.setKeepZero(isKeepZero);
             return this;
         }
 
+        /**
+         * 设置滚轮上的内容是否要循环出现
+         * @param isRecycle
+         * @return
+         */
+        public Builder setWheelRecycle(boolean isRecycle) {
+            controller.setWheelRecycle(isRecycle);
+            return this;
+        }
         public Builder setOnPickerDialogClickListener(OnPickerDialogClickListener listener) {
             pickerListener = listener;
             return this;
@@ -101,6 +115,7 @@ public class SuperNumberPicker extends SuperPicker {
             SuperNumberPicker picker = create();
             picker.show();
         }
+
     }
 
     public void show() {

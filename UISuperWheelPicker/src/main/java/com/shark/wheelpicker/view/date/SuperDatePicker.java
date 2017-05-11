@@ -1,8 +1,8 @@
 package com.shark.wheelpicker.view.date;
 
-import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.support.v7.app.AlertDialog;
 
 import com.shark.wheelpicker.R;
 import com.shark.wheelpicker.core.SuperPicker;
@@ -37,16 +37,15 @@ public class SuperDatePicker extends SuperPicker {
             return this;
         }
 
-        public Builder setMaxYear(int max) {
-            controller.setMaxYear(max);
+        public Builder setMaxCalendar(Calendar maxCalendar) {
+            controller.setMaxCalendar(maxCalendar);
             return this;
         }
 
-        public Builder setMinYear(int min) {
-            controller.setMinYear(min);
+        public Builder setMinCalendar(Calendar minCalendar) {
+            controller.setMinCalendar(minCalendar);
             return this;
         }
-
 
         public Builder setOnDateSelectedListener(OnDateSelectedListener listener) {
             pickerListener = listener;
@@ -82,7 +81,7 @@ public class SuperDatePicker extends SuperPicker {
                                 getOnDateSelectedListener().onSelected(dialog, getController().getCurrentCalendar());
                             }
                         }
-                    }).setNegativeButton(R.string.Cancel, new DialogInterface.OnClickListener() {
+                    }).setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
                             if (getOnDateSelectedListener() != null) {

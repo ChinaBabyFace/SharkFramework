@@ -62,4 +62,8 @@ public class ArrayWheelAdapter<T> extends AbstractWheelTextAdapter {
     public int getItemsCount() {
         return items.length;
     }
+
+    public void setItems(T[] items) {
+        this.items = items;
+    }
 }

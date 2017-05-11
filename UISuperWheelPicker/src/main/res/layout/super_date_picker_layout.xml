@@ -13,7 +13,7 @@
         android:orientation="horizontal">
 
         <com.shark.wheelpicker.core.WheelVerticalView
-            android:id="@+id/year_picker"
+            android:id="@+id/am_pm_picker"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:selectionDividerActiveAlpha_shark="255"
